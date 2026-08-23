@@ -79,11 +79,11 @@ End with a single, concrete experiment the user could try in their next session 
 
 ---
 
-## Step 8: Generate latest prompting context.md (always do this last)
+## Step 8: Generate latest-prompting-context.md (always do this last)
 
-After completing the debrief report, **always** generate or update a `latest prompting context.md` file. This file captures your distilled prompting preferences so they can carry into future sessions.
+After completing the debrief report, **always** generate or update a `latest-prompting-context.md` file. This file captures your distilled prompting preferences so they can carry into future sessions.
 
-Note: unlike `CLAUDE.md`, Claude Code does **not** auto-load this file by name — it's a plain reference file. If you want it to auto-inject every session, add a line to your `CLAUDE.md` referencing it (e.g. `@latest prompting context.md`), or paste its contents in manually at the start of a new conversation.
+Note: unlike `CLAUDE.md`, Claude Code does **not** auto-load this file by name — it's a plain reference file. If you want it to auto-inject every session, add a line to your `CLAUDE.md` referencing it (e.g. `@latest-prompting-context.md`), or paste its contents in manually at the start of a new conversation.
 
 ### How to write it
 
@@ -91,11 +91,11 @@ Extract the most actionable insights from the debrief and distill them into ters
 
 ### File location
 
-- **If the user is in a project directory** (Claude Code context): write to `./latest prompting context.md` in the current working directory
-- **Otherwise**: write to `~/latest prompting context.md` as a global user-level file
-- **If a `latest prompting context.md` already exists**: read it first, then merge — preserve existing rules, update or add based on new learnings. Never delete rules unless the user explicitly asks.
+- **If the user is in a project directory** (Claude Code context): write to `./latest-prompting-context.md` in the current working directory
+- **Otherwise**: write to `~/latest-prompting-context.md` as a global user-level file
+- **If a `latest-prompting-context.md` already exists**: read it first, then merge — preserve existing rules, update or add based on new learnings. Never delete rules unless the user explicitly asks.
 
-### latest prompting context.md structure
+### latest-prompting-context.md structure
 
 ```markdown
 # My Prompting Preferences
@@ -121,7 +121,7 @@ Extract the most actionable insights from the debrief and distill them into ters
 - ...
 ```
 
-### Rules for writing good latest prompting context.md entries
+### Rules for writing good latest-prompting-context.md entries
 
 - **Imperative and terse**: "Always ask for output format before starting" not "The user prefers to specify output format"
 - **Behavioral, not descriptive**: rules Claude can act on, not observations about the user
@@ -134,7 +134,7 @@ Extract the most actionable insights from the debrief and distill them into ters
 Tell the user:
 1. Where the file was written
 2. What was added or changed vs the previous version (if it existed)
-3. One-line reminder: "This file isn't auto-loaded like CLAUDE.md — reference it with `@latest prompting context.md` from your CLAUDE.md, or paste it in manually, if you want it applied automatically."
+3. One-line reminder: "This file isn't auto-loaded like CLAUDE.md — reference it with `@latest-prompting-context.md` from your CLAUDE.md, or paste it in manually, if you want it applied automatically."
 
 ---
 
@@ -144,5 +144,5 @@ Tell the user:
 - **Code-heavy session (Claude Code):** Pay extra attention to Cost Signal — regenerating large files for small edits is the #1 efficiency drain in code sessions
 - **Creative/exploratory session:** Lower bar for "redundancy" — iteration is expected. Focus instead on whether the user anchored their creative direction early or drifted
 - **If the user shares a conversation from another session:** Analyze that conversation, not the current one
-- **latest prompting context.md always gets written** — even for short sessions. A 2-turn session might only add one rule, but the habit of updating it is the point.
-- **User says "just the file" / "just latest prompting context.md":** Skip the full debrief, generate only the file with a one-paragraph summary of what changed and why.
+- **latest-prompting-context.md always gets written** — even for short sessions. A 2-turn session might only add one rule, but the habit of updating it is the point.
+- **User says "just the file" / "just latest-prompting-context.md":** Skip the full debrief, generate only the file with a one-paragraph summary of what changed and why.
